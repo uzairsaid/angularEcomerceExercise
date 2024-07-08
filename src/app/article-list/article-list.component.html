@@ -1,0 +1,18 @@
+
+<div class="articles">
+    <div class="article-card">
+        <img [src]="image" alt="shoe image" class="article-img">
+        <p>Name: {{articleName | uppercase}}</p>
+        <p>Price: {{price |currency:'BIF'}}</p>
+
+        @if(isAvailable){
+            <p>Status: <span [ngStyle]="{color:'#838930'}">Available</span></p>
+        }
+        @else {
+            <p>Status: <span [ngStyle]="{color:'red'}">Not Available</span></p>
+        }
+        <button [class.disabled]="!isButtonActive" [disabled]="!isAvailable" class="btn-buy" (click)="onBuy()">Buy</button>
+    </div>
+    
+</div>
+

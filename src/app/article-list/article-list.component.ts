@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
 import { CurrencyPipe, NgStyle, UpperCasePipe } from '@angular/common';
 
 @Component({
@@ -6,9 +6,17 @@ import { CurrencyPipe, NgStyle, UpperCasePipe } from '@angular/common';
   standalone: true,
   imports: [NgStyle,CurrencyPipe,UpperCasePipe],
   templateUrl: './article-list.component.html',
-  styleUrl: './article-list.component.scss'
+  styleUrl: './article-list.component.scss',
+  providers: [
+    {provide: 'ARTICLE_NAME',useValue:null},
+    {provide: 'IMAGE',useValue:null},
+    {provide: 'PRICE',useValue:null},
+    {provide: 'COUNT',useValue:null},
+    {provide: 'AVAILABLE',useValue:null},
+
+  ]
 })
-export class ArticleListComponent  implements OnInit{
+export class ArticleListComponent implements OnInit{
   articleName!: string;
   image!: string;
   price!: number;
@@ -16,15 +24,31 @@ export class ArticleListComponent  implements OnInit{
   isAvailable!:boolean;
   isButtonActive!:boolean;
 
+  constructor(@Inject('ARTICLE_NAME') articleName:string,@Inject('IMAGE') image:string,@Inject('PRICE') price:number, @Inject('COUNT') count:number) {
+    this.articleName = articleName;
+    this.image = image;
+    this.price = price;
+    this.count = count;
+    this.isAvailable = true
+
+  }
+  ngOnCreate(): ArticleListComponent{
+    let article = new ArticleListComponent("air jordi","../../assets/shoe_nike.jpeg",20000,3);
+    return article;
+  }
+
   ngOnInit(): void {
-    this.articleName = "air jordan";
-    this.image = "../../assets/shoe_nike.jpeg";
-    this.price = 50000;
-    this.count = 5;
-    this.isAvailable = true;
-    this.isButtonActive= true;
-    if(this.count === 0 ){
-      this.isAvailable =false;
+    let article = this.ngOnCreate()
+    console.log(article.price)
+    this.articleName = article.articleName
+    this.image = article.image
+    this.price = article.price
+    this.count = article.count
+
+    console.log(article+ "niyi")
+    article.isButtonActive= true;
+    if(article.count === 0 ){
+      article.isAvailable =false;
     }
   }
 onBuy(): void{

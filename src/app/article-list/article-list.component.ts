@@ -1,4 +1,4 @@
-import { Component,Inject, OnInit } from '@angular/core';
+import { Component,EventEmitter,Inject, Input, OnInit, Output } from '@angular/core';
 import { CurrencyPipe, NgStyle, UpperCasePipe } from '@angular/common';
 
 @Component({
@@ -23,6 +23,9 @@ export class ArticleListComponent implements OnInit{
   count!: number;
   isAvailable!:boolean;
   isButtonActive!:boolean;
+  @Input() title = "Articles list";
+  @Output('valueChanged') changed = new EventEmitter<number>();
+
 
   constructor(@Inject('ARTICLE_NAME') articleName:string,@Inject('IMAGE') image:string,@Inject('PRICE') price:number, @Inject('COUNT') count:number) {
     this.articleName = articleName;
@@ -45,7 +48,7 @@ export class ArticleListComponent implements OnInit{
     this.price = article.price
     this.count = article.count
 
-    console.log(article+ "niyi")
+    console.log(article+"niyi")
     article.isButtonActive= true;
     if(article.count === 0 ){
       article.isAvailable =false;
@@ -60,6 +63,8 @@ onBuy(): void{
     this.isAvailable = false;
     this.isButtonActive = false;
   }
-
+}
+onValueChanged(): void{
+  console.log(" c bn ca fonctionne")
 }
 }

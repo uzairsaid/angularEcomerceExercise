@@ -23,8 +23,6 @@ export class ArticleListComponent implements OnInit{
   count!: number;
   isAvailable!:boolean;
   isButtonActive!:boolean;
-  @Input() title = "Articles list";
-  @Output('valueChanged') changed = new EventEmitter<number>();
 
 
   constructor(@Inject('ARTICLE_NAME') articleName:string,@Inject('IMAGE') image:string,@Inject('PRICE') price:number, @Inject('COUNT') count:number) {
@@ -63,8 +61,5 @@ onBuy(): void{
     this.isAvailable = false;
     this.isButtonActive = false;
   }
-}
-onValueChanged(): void{
-  console.log(" c bn ca fonctionne")
 }
 }

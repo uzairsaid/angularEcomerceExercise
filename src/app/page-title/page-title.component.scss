@@ -1,0 +1,19 @@
+.head-title {
+    display: flex;
+    justify-content: center;
+    background-image: url("../../assets/images.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
+    width: 99%;
+    height: auto;
+
+    h1{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 2rem;
+        font-weight: normal;
+        font-style: italic;
+        color: white;
+    }
+
+}

@@ -1,18 +1,24 @@
 <div class="articles">
     <div class="article-card">
-        <img [src]="image" alt="shoe image" class="article-img">
-        <p>Name: {{articleName | uppercase}}</p>
-        <p>Price: {{price |currency:'BIF'}}</p>
-        <p>Reset: {{count}}</p>
+        @for (article of articleList; track price) {
+            <div class="card-body-article">
+                <img [src]="article.image" alt="shoe image" class="article-img" width="85%" height="70%">
+                <p>Name: {{article.articleName | uppercase}}</p>
+                <p>Price: {{article.price |currency:'BIF'}}</p>
+                @if(isAvailable){
+                    <p>Status: <span [ngStyle]="{color:'#838930'}">Available</span></p>
+                }
+                @else {
+                    <p>Status: <span [ngStyle]="{color:'red'}">Not Available</span></p>
+                }
 
-        
-        @if(isAvailable){
-            <p>Status: <span [ngStyle]="{color:'#838930'}">Available</span></p>
+                <button [class.disabled]="!isButtonActive" [disabled]="!isAvailable" class="btn-buy" (click)="onBuy()">Add to cart</button>
+
+            </div>
+            
+
         }
-        @else {
-            <p>Status: <span [ngStyle]="{color:'red'}">Not Available</span></p>
-        }
-        <button [class.disabled]="!isButtonActive" [disabled]="!isAvailable" class="btn-buy" (click)="onBuy()">Buy</button>
+       
     </div>
 </div>
 

@@ -7,7 +7,7 @@ $main-color:#42a806;
 }
 
 .article-card{
-    width: 15%;
+    width: 40%;
     border-radius: 8%;
     box-shadow: 2px 2px 6px $main-color;
     font-weight: bold;
@@ -16,16 +16,22 @@ $main-color:#42a806;
     padding: 2rem;
     margin-left: 2rem;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    .card-body-article {
+        height: 35%;
+        margin-top: 3rem;
+    }
+    
 }
 
 .btn-buy {
-    width: 80%;
-    margin-bottom: 2rem;
-    margin-left: 0rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 34% 0% 34% 0%;
     color: white;
     background-color: $main-color;
-    border-radius: 5%;
+    border-color: $main-color;
+    height: 3rem;
 }
 .article-img {
     width: 80%;

@@ -23,6 +23,7 @@ export class ArticleListComponent implements OnInit{
   count!: number;
   isAvailable!:boolean;
   isButtonActive!:boolean;
+  articleList!: ArticleListComponent [];
 
 
   constructor(@Inject('ARTICLE_NAME') articleName:string,@Inject('IMAGE') image:string,@Inject('PRICE') price:number, @Inject('COUNT') count:number) {
@@ -30,29 +31,43 @@ export class ArticleListComponent implements OnInit{
     this.image = image;
     this.price = price;
     this.count = count;
-    this.isAvailable = true
+    this.isAvailable = true;
+    this.isButtonActive = true;
 
   }
-  ngOnCreate(): ArticleListComponent{
+  ngOnCreate(): ArticleListComponent[]{
     let article = new ArticleListComponent("air jordi","../../assets/shoe_nike.jpeg",20000,3);
-    return article;
+    let article1 = new ArticleListComponent("Nike","../../assets/images.jpeg",30000,3);
+    let article2 = new ArticleListComponent("Vans","../../assets/shoe.jpeg",25000,3);
+
+    this.articleList = [article,article1,article2];
+    return this.articleList;
   }
 
   ngOnInit(): void {
-    let article = this.ngOnCreate()
-    console.log(article.price)
-    this.articleName = article.articleName
-    this.image = article.image
-    this.price = article.price
-    this.count = article.count
+    let articles = this.ngOnCreate()
 
-    console.log(article+"niyi")
-    article.isButtonActive= true;
-    if(article.count === 0 ){
-      article.isAvailable =false;
-    }
+    // for (let i = 0; i < articles.length; i++) {
+    //   this.articleName = articles[i].articleName;
+    //   this.image = articles[i].image;
+    //   this.price = articles[i].price; 
+    // }
+    this.articleList = articles;
+
+    // this.articleName = article.articleName
+    // this.image = article.image
+    // this.price = article.price
+    // this.count = article.count
+
+    // console.log(article+"niyi")
+    // article.isButtonActive= true;
+    // if(article.count === 0 ){
+    //   article.isAvailable =false;
+    // }
+  
   }
 onBuy(): void{
+  console.log("niyi erga"+this.count)
   if (this.count !==0){
     this.count--;
     console.log("count: "+this.count);

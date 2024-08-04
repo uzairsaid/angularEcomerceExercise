@@ -18,6 +18,8 @@ $main-color:#42a806;
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
+    flex: 3;
+    flex-wrap: wrap;
     .card-body-article {
         height: 35%;
         margin-top: 3rem;
@@ -32,6 +34,7 @@ $main-color:#42a806;
     background-color: $main-color;
     border-color: $main-color;
     height: 3rem;
+    cursor: pointer;
 }
 .article-img {
     width: 80%;

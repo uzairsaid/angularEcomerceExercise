@@ -3,6 +3,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { PageTitleComponent } from "./page-title/page-title.component";
 import { FooterComponent } from "./footer/footer.component";
+import { CartComponent } from "./cart/cart.component";
 
 
 @Component({
@@ -12,7 +13,8 @@ import { FooterComponent } from "./footer/footer.component";
     NavbarComponent,
     ArticleListComponent,
     PageTitleComponent,
-    FooterComponent
+    FooterComponent,
+    CartComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

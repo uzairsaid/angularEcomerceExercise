@@ -29,16 +29,21 @@ export class ArticleListComponent implements OnInit{
   ngOnInit(): void {
     let articles = this.ngOnCreate();
     this.articleList = articles;
+    this.isButtonActive = true;
+    this.isAvailable = true;
+
   }
-// onBuy(): void{
-//   console.log("niyi erga"+this.count)
-//   if (this.count !==0){
-//     this.count--;
-//     console.log("count: "+this.count);
-//   }
-//   else {
-//     this.isAvailable = false;
-//     this.isButtonActive = false;
-//   }
-// }
+onAddToCart(): void{
+  for (let i = 0; i< this.articleList.length; i++) {
+    if (this.articleList[i].count !==0){
+      this.articleList[i].count--;
+  
+    }
+    else {
+      this.isAvailable = false;
+      this.isButtonActive = false;
+    }
+      }
+  
+}
 }

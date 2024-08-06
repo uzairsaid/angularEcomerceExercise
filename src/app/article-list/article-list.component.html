@@ -5,14 +5,18 @@
                 <img [src]="article.image" alt="shoe image" class="article-img" width="85%" height="70%">
                 <p>Name: {{article.name |uppercase}}</p>
                 <p>Price: {{article.price |currency:'BIF'}}</p>
-                @if(isAvailable){
-                    <p>Status: <span [ngStyle]="{color:'#838930'}">Available</span></p>
-                }
-                @else {
-                    <p>Status: <span [ngStyle]="{color:'red'}">Not Available</span></p>
+                @if (isAvailable){
+                <p>Status: Available</p>
+
                 }
 
-                <button [class.disabled]="!isButtonActive" [disabled]="!isAvailable" class="btn-buy" >Add to cart</button>
+                @else{
+                    <p class="article-not-availble">Status: Not Available</p>
+    
+                    }
+                
+            
+                <button [class.disabled]="!isButtonActive" [disabled]="!isAvailable" class="btn-buy" (click)="onAddToCart()">Add to cart</button>
 
             </div>
             

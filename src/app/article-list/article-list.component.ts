@@ -1,6 +1,7 @@
 import { Component,EventEmitter,Inject, Input, OnInit, Output } from '@angular/core';
 import { CurrencyPipe, NgStyle, UpperCasePipe } from '@angular/common';
 import { Shoe } from '../models/shoe';
+import { CartService } from '../Services/cart.service';
 
 @Component({
   selector: 'app-article-list',
@@ -15,6 +16,10 @@ export class ArticleListComponent implements OnInit{
   isAvailable!:boolean;
   isButtonActive!:boolean;
   articleList!: Shoe [];
+
+  constructor(private cartService:CartService){
+
+  }
 
 
   ngOnCreate(): Shoe[]{
@@ -33,17 +38,8 @@ export class ArticleListComponent implements OnInit{
     this.isAvailable = true;
 
   }
-onAddToCart(): void{
-  for (let i = 0; i< this.articleList.length; i++) {
-    if (this.articleList[i].count !==0){
-      this.articleList[i].count--;
-  
-    }
-    else {
-      this.isAvailable = false;
-      this.isButtonActive = false;
-    }
-      }
+onAddToCart(shoe: Shoe): void{
+  this.cartService.addCart(shoe);
   
 }
 }

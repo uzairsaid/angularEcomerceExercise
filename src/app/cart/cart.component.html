@@ -7,18 +7,18 @@
                 <td>Price</td>
             </tr>
         </thead>
-        
         <tbody>
             
                 <tr *ngFor="let shoe of cart">
                     <td>{{shoe.name}}</td>
                     <td>{{shoe.price}}</td>
                 </tr>
-
-            
+                <tr>
+                    <td colspan="1">Total</td>
+                    <td>{{total}}</td>
+                </tr>
         </tbody>
-
-
+        <button>Buy</button>
 
     </table>
    

@@ -10,10 +10,15 @@ import { NgFor } from '@angular/common';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
-export class CartComponent {
+export class CartComponent{
   cart:Shoe[]  = [];
-  constructor(private cartService: CartService){
+  total:number = 0;
+  constructor(private cartService: CartService,){
     this.cart= this.cartService.getCart();
+    this.total = this.cartService.getTotal();
+
   }
+  
+
 
 }

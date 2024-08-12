@@ -1,6 +1,6 @@
 $main-color:#42a806;
 .cart-container{
-    width: 40%;
+    width: 50%;
     border-radius: 8%;
     box-shadow: 2px 2px 6px $main-color;
     font-weight: bold;
@@ -10,5 +10,15 @@ $main-color:#42a806;
     margin-left: 2rem;
     margin-bottom: 2rem;
     flex: 1;
+    .divider {
+        border-bottom: 3px solid black;
+        
+    }
+    table {
+        border-collapse: collapse;
+    }
+    thead th{
+        border-bottom: 2px solid black;
+    }
 
 }

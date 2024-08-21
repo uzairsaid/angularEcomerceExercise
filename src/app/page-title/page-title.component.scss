@@ -4,16 +4,26 @@
     background-image: url("../../assets/images.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     margin-top: 1rem;
     width: 99%;
     height: auto;
+    color: white;
 
     h1{
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 2rem;
         font-weight: normal;
         font-style: italic;
-        color: white;
+        
     }
+    p {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    a {
+        color: green;
+    }
+
 
 }

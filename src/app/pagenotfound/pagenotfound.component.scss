@@ -1,0 +1,10 @@
+div{
+    display: block;
+    .code-error {
+        font-size: large;
+        font-weight: bold;
+        .page-message {
+            font-weight: bolder;
+        }
+    }
+}

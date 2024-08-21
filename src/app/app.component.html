@@ -1,11 +1,12 @@
 
-<app-navbar></app-navbar>
-<app-page-title [message]="welcomeMessage">
-    
-</app-page-title>
-<div class="container">
-    <app-article-list></app-article-list>
-    <app-cart></app-cart>
-</div>
+    <app-navbar></app-navbar>
+    <app-page-title [message]="welcomeMessage">
+        
+    </app-page-title>
 
-<app-footer></app-footer>
+    <div class="container">
+        <router-outlet>
+            <app-cart></app-cart>
+        </router-outlet> 
+    </div>
+    <app-footer></app-footer>

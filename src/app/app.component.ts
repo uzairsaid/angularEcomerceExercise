@@ -4,6 +4,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { PageTitleComponent } from "./page-title/page-title.component";
 import { FooterComponent } from "./footer/footer.component";
 import { CartComponent } from "./cart/cart.component";
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { CartComponent } from "./cart/cart.component";
     ArticleListComponent,
     PageTitleComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    RouterOutlet
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

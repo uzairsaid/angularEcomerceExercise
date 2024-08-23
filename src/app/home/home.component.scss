@@ -1,0 +1,44 @@
+$main-color:#42a806;
+$gray-color:#373837;
+.hero {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    .hero-content {
+        justify-content: center;
+        p{
+            text-align: justify;
+            max-width: 20rem;
+            color: $gray-color;
+            font-size: 18px;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            color: $gray-color;
+        }
+        a {
+            background-color: #42a806;
+            display: inline-block;
+            padding: 1rem 1.2rem;
+            text-decoration: none;
+            text-transform: capitalize;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        a:hover {
+            background-color: #5ad414;
+        }
+
+    }
+
+    .hero-img {
+        margin-left: -4rem;
+        margin-top: 3rem;
+        img {
+            width: 20rem;
+            height: 15rem;
+        }
+    }
+    
+}

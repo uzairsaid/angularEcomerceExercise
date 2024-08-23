@@ -12,11 +12,13 @@ export class NavbarComponent implements OnInit {
   homeLink!: string;
   aboutLink!: string;
   contactLink!: string;
+  productsLink!: string;
   
   ngOnInit(): void{
     this.homeLink = "Home";
     this.aboutLink = "About Us";
     this.contactLink = "Contact"
+    this.productsLink = "Products"
   }
 
 }

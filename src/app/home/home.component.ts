@@ -12,7 +12,7 @@ export class HomeComponent{
   image!:string
 
   ngOnInit(): void {
-    this.image = "../../assets/images.jpeg"
+    this.image = "../../assets/vans_green.jpeg"
   }
 
 }

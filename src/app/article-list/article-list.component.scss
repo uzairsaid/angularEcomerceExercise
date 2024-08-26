@@ -1,4 +1,5 @@
 $main-color:#42a806;
+$hover-color:#5ad414;
 .articles {
     display: flex;
     flex-direction: row;
@@ -35,6 +36,9 @@ $main-color:#42a806;
     border-color: $main-color;
     height: 3rem;
     cursor: pointer;
+    &:hover {
+        background-color: $hover-color;
+    }
 }
 .article-img {
     width: 80%;

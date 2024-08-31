@@ -32,12 +32,10 @@ nav {
 
      &:hover {
         font-weight: bold;
+        cursor: pointer;
      }
    }
-   .cart-div a img{
-    width: 3rem;
-    height: 2rem;
-   }
+
    .links {
     display: flex;
     align-items: center;

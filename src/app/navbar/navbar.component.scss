@@ -34,14 +34,14 @@ nav {
         font-weight: bold;
         cursor: pointer;
      }
+     i {
+        color: $main-color;
+     }
    }
 
    .links {
     display: flex;
     align-items: center;
-    .cart-img {
-        padding-right: 1rem;
-    }
    }
    
 }

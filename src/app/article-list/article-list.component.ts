@@ -26,8 +26,11 @@ export class ArticleListComponent implements OnInit{
     let article = new Shoe(1,"air jordi","../../assets/shoe_nike.jpeg",20000,3);
     let article1 = new Shoe(2,"Nike","../../assets/images.jpeg",30000,3);
     let article2 = new Shoe(3,"Vans","../../assets/shoe.jpeg",25000,3);
+    let article3 = new Shoe(4,"Marathon","../../assets/shoe_big.jpeg",45000,3);
+    let article4 = new Shoe(5,"Sport shoe","../../assets/shoe_green.jpeg",35000,3);
 
-    this.articleList = [article,article1,article2];
+
+    this.articleList = [article,article1,article2,article3,article4];
     return this.articleList;
   }
 

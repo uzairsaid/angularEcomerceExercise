@@ -39,7 +39,7 @@ export class ArticleListComponent implements OnInit{
 
   }
 onAddToCart(shoe: Shoe): void{
-  this.cartService.addCart(shoe);
-  
+
+  this.cartService.addCart(shoe); 
 }
 }

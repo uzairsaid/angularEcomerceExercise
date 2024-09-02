@@ -8,7 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   private cart: Shoe[] = [];
   private total = new BehaviorSubject<number>(this.calculateTotal());
-  total$ = this.total.asObservable()
+  total$ = this.total.asObservable();
+  private cartLength = new BehaviorSubject<number>(0);
+  cartLength$ = this.cartLength.asObservable();
 
   getCart():Shoe[]{
     return this.cart;
@@ -18,6 +20,8 @@ export class CartService {
   addCart(shoe: Shoe){
     this.cart.push(shoe);
     this.updateTotal();
+    this.cartLength.next(this.cart.length);
+    
   }
   calculateTotal():number{
     return this.cart.reduce((sum,shoe)=>sum+shoe.price,0);
@@ -34,7 +38,5 @@ export class CartService {
       return false
     }
   }
-
-
   
 }

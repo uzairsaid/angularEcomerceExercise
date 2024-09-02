@@ -22,7 +22,7 @@ export class ArticleListComponent implements OnInit{
   }
 
 
-  ngOnCreate(): Shoe[]{
+  OnCreate(): Shoe[]{
     let article = new Shoe(1,"air jordi","../../assets/shoe_nike.jpeg",20000,3);
     let article1 = new Shoe(2,"Nike","../../assets/images.jpeg",30000,3);
     let article2 = new Shoe(3,"Vans","../../assets/shoe.jpeg",25000,3);
@@ -32,7 +32,7 @@ export class ArticleListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let articles = this.ngOnCreate();
+    let articles = this.OnCreate();
     this.articleList = articles;
     this.isButtonActive = true;
     this.isAvailable = true;

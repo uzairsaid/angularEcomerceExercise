@@ -26,5 +26,15 @@ export class CartService {
   updateTotal():void{
     this.total.next(this.calculateTotal())
   }
+  isEmpty(): boolean{
+    if (this.cart.length === 0){
+      return true;
+    }
+    else {
+      return false
+    }
+  }
+
+
   
 }

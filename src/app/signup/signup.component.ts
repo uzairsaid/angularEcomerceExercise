@@ -1,29 +1,35 @@
-import { Component } from '@angular/core';
-import {FormControl,FormGroup, Validators} from '@angular/forms';
+
+import { Component} from '@angular/core';
+import {FormBuilder,ReactiveFormsModule, Validators} from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-signup',
-  standalone: false,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+  
+  ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
-  signupForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl('', Validators.email),
-    password: new FormControl(''),
-    confirmPassword: new FormControl('')
-  });
-
- onSubmit():void{
-  if (this.signupForm.valid) {
-    console.log("is valid");
+  constructor(private formBuilder: FormBuilder) {
   }
-  else{
-    console.log("is valid");
+
+  signupForm = this.formBuilder.group({
+  name: ['', Validators.required],
+  email: ['', Validators.email],
+  password: [''],
+  confirmPassword: ['']
+});
+   
+  
+ onSubmit():void{
+  if (this.signupForm.valid){
+    console.log(this.signupForm.value);
+
   }
  }
-
 }

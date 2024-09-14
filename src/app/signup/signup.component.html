@@ -1,24 +1,71 @@
-<div>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" formControlName="name">
-        </div>
-       
-        <div>
-            <label for="name">E mail</label>
-            <input type="email"  formControlName="email">
-        </div>
-        <div>
-            <label for="name">Password</label>
-            <input type="password" formControlName="password">
-        </div>
-        <div>
-            <label for="name">Confirm password</label>
-            <input type="password" formControlName="confirmPassword">
-        </div>
+<div >
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" #formDir="ngForm">
+        <div class="cross-validation-error" [class.cross-validation-error]="signupForm.touched || signupForm.dirty">
 
-        <button type="submit">Save</button>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" formControlName="name" required>
+
+                <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                    <div *ngIf="name?.hasError('required')">
+                        <p class="error-message">Name is required</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div>
+                <label for="email">E mail</label>
+                <input type="email"  formControlName="email">
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                    <!-- <div *ngIf="email?.hasError('required')">
+                        <p class="error-message">E-mail is required</p>
+                    </div> -->
+
+                    <div *ngIf="email?.hasError('email')">
+                        <p class="error-message">Not a valid E-mail</p>
+                    </div> 
+
+                </div>
+            </div>
+            <div>
+                <label for="name">Password</label>
+                <input type="password" formControlName="password">
+                <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                    <div *ngIf="password?.hasError('required')">
+                        <p class="error-message">Password required</p>
+                    </div>
+
+                    <div *ngIf="password?.hasError('minlength')">
+                        <p class="error-message">Password must not at least 4 characters</p>
+                    </div>
+
+                    <div *ngIf="password?.hasError('maxlength')">
+                        <p class="error-message">Password cannot be more than 16 characters long</p>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <label for="name">Confirm password</label>
+                <input type="password" formControlName="confirmPassword">
+
+                <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
+                    <div *ngIf="confirmPassword?.hasError('required')">
+                        <p class="error-message">Password required</p>
+                    </div>
+
+                    <div *ngIf="confirmPassword?.hasError('minlength')">
+                        <p class="error-message">Password must not at least 4 characters</p>
+                    </div>
+
+                    <div *ngIf="confirmPassword?.hasError('maxlength')">
+                        <p class="error-message">Password cannot be more than 16 characters long</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="formDir.invalid">Save</button>
     </form>
 
     <p>{{signupForm.value.name}}</p>

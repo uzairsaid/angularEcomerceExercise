@@ -1,3 +1,7 @@
+$error-color: #830314;
 form {
     margin-top: 4rem;
+}
+.error-message {
+    color: $error-color;
 }

@@ -2,6 +2,8 @@ import { Component,EventEmitter,Inject, Input, OnInit, Output } from '@angular/c
 import { CurrencyPipe, NgStyle, UpperCasePipe } from '@angular/common';
 import { Shoe } from '../models/shoe';
 import { CartService } from '../Services/cart.service';
+import { CartPopUpComponent } from '../cart-pop-up/cart-pop-up.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-article-list',
@@ -17,7 +19,7 @@ export class ArticleListComponent implements OnInit{
   isButtonActive!:boolean;
   articleList!: Shoe [];
 
-  constructor(private cartService:CartService){
+  constructor(private cartService:CartService, private matDialog: MatDialog ){
 
   }
 
@@ -42,7 +44,7 @@ export class ArticleListComponent implements OnInit{
 
   }
 onAddToCart(shoe: Shoe): void{
-
+  this.matDialog.open(CartPopUpComponent);
   this.cartService.addCart(shoe); 
 }
 }
